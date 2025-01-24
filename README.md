@@ -11,6 +11,11 @@ The data used for testing is the following:
 https://data.4tu.nl/datasets/6f35269e-4ce7-4bc4-9abb-b3cea04cad00
 
 Compared to original results in the research paper, the average fitness and precision is lower.
-The trends in the original results were successfully observed when tested with multiple BPIC datasets.
-
 When filter steps is changed to "4" and "6", the precision rises to 0.93, however average fitness drops even lower, meaning traces align poorly with the model and resulting in over-generalization.
+
+### Conclusion
+The size of the models and the precision difference in the results compared to the original results indicates issues with filtering and clustering (quality estimation).
+Over-filtering and under-filtering during event-log preprocessing can lead to information loss.
+The clustering and quality estimation can especially be difficult to properly tune:
+- Wrong clustering leads to suboptimal quality cuts which do not properly reflect the log’s structure, therefore leading to poor precision.
+- Misalignment in operator selection can cause the discovered tree to deviate from the true behavior in the event log.
